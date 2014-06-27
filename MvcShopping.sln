@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcShopping", "MvcShopping\MvcShopping.csproj", "{3966B2E2-B2CC-4AFA-B4F3-2AF7B32F655A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcShopping.Tests", "MvcShopping.Tests\MvcShopping.Tests.csproj", "{82838AF9-A7DF-454C-BCEA-1E9C00DD6792}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3966B2E2-B2CC-4AFA-B4F3-2AF7B32F655A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3966B2E2-B2CC-4AFA-B4F3-2AF7B32F655A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3966B2E2-B2CC-4AFA-B4F3-2AF7B32F655A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3966B2E2-B2CC-4AFA-B4F3-2AF7B32F655A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82838AF9-A7DF-454C-BCEA-1E9C00DD6792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82838AF9-A7DF-454C-BCEA-1E9C00DD6792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82838AF9-A7DF-454C-BCEA-1E9C00DD6792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82838AF9-A7DF-454C-BCEA-1E9C00DD6792}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
