@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Linq;
+using MvcShopping.Models;
 
 namespace MvcShopping.Controllers
 {
@@ -10,9 +13,15 @@ namespace MvcShopping.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            //web.configから接続文字列を取得
+            string cnstr = ConfigurationManager.ConnectionStrings[
+               "mvcdbConnectionString"].ConnectionString;
+            DataContext dc = new DataContext(cnstr);
+            //商品一覧を取得
+            ProductModel model = new ProductModel();
+            model.Products = dc.GetTable<TProduct>();
+            
+            return View(model);
         }
 
         public ActionResult About()

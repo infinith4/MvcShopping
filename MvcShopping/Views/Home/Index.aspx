@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<ProductModel>" %>
+<%@ Import Namespace="MvcShopping.Models" %>
 <asp:Content ID="indexTitle" ContentPlaceHolderID="TitleContent" runat="server">
     Home Page - My ASP.NET MVC Application
 </asp:Content>
@@ -9,8 +9,13 @@
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1>Home Page.</h1>
-                <h2><%: ViewBag.Message %></h2>
+                <h2></h2>
             </hgroup>
+            //aaa
+        <% foreach(var item in Model.Products) {
+               Response.Write(
+                   string.Format("商品名 {0} <br>", item.name));
+        } %>
             <p>
                 To learn more about ASP.NET MVC visit
                 <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
