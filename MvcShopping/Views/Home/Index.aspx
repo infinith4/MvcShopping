@@ -11,11 +11,24 @@
                 <h1>Home Page.</h1>
                 <h2></h2>
             </hgroup>
-            //aaa
+            <% if (Page.User.Identity.IsAuthenticated){ %>
+              <li><%: Html.ActionLink("買う","AddItem/", "Cart") %></li>
+            <% } %>
         <% foreach(var item in Model.Products) {
                Response.Write(
                    string.Format("商品名 {0} <br>", item.name));
         } %>
+        <% if(Model.HasPrevPage){%>
+            <%: Html.ActionLink("前頁", "/", new { page = Model.CurrentPage -1 }) %>
+        <% } else {%>
+                前頁
+        <% } %>
+        <% if(Model.HasNextPage){%>
+            <%: Html.ActionLink("次頁", "/", new { page = Model.CurrentPage + 1 }) %>
+        <% } else {%>
+                次頁
+        <% } %>
+
             <p>
                 To learn more about ASP.NET MVC visit
                 <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.

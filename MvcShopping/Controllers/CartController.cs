@@ -38,6 +38,8 @@ namespace MvcShopping.Controllers
             string cnstr = ConfigurationManager.ConnectionStrings[
                "mvcdbConnectionString"].ConnectionString;
             DataContext dc = new DataContext(cnstr);
+            //Console.ReadLine(dc);
+            //id = "A0001";
             var product = (from t in dc.GetTable<TProduct>()
                            where t.id == id
                            select t).Single<TProduct>();

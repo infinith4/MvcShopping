@@ -11,7 +11,7 @@ namespace MvcShopping.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             //web.configから接続文字列を取得
             string cnstr = ConfigurationManager.ConnectionStrings[
@@ -21,6 +21,33 @@ namespace MvcShopping.Controllers
             ProductModel model = new ProductModel();
             model.Products = dc.GetTable<TProduct>();
             
+            //1ページに表示する
+            int max_item = 5;
+            //表示中のページ
+            int cur_page = page ?? 0;
+            int max = dc.GetTable<TProduct>().Count();
+            //指定ページの商品数を取得する
+            model.Products = (from p in dc.GetTable<TProduct>()
+                              select p).Skip(cur_page * max_item).Take(max_item);
+            //カレントページの設定
+            model.CurrentPage = cur_page;
+            //前頁が存在するか
+            if (cur_page == 0)
+            {
+                model.HasPrevPage = false;
+            }
+            else {
+                model.HasPrevPage = true;
+            }
+            //次頁が存在するか
+            if (cur_page * max_item + max_item < max)
+            {
+                model.HasNextPage = true;
+            }
+            else {
+                model.HasNextPage = false;
+            }
+            //setting model
             return View(model);
         }
 

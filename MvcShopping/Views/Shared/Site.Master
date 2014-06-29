@@ -14,7 +14,7 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title"><%: Html.ActionLink("ここにロゴを入れてください", "Index", "Home") %></p>
+                    <p class="site-title"><%: Html.ActionLink("Title", "Index", "Home") %></p>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -27,6 +27,7 @@
                             <li><%: Html.ActionLink("連絡先", "Contact", "Home") %></li>
                             <% if (Page.User.Identity.IsAuthenticated){ %>
                             <li><%: Html.ActionLink("カート","Index","Cart") %></li>
+                            <li><%: Html.ActionLink("投票","Index","Cart") %></li>
                             <% } %>
                         </ul>
                     </nav>
