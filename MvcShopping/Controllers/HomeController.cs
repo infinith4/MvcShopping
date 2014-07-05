@@ -20,7 +20,18 @@ namespace MvcShopping.Controllers
                "mvcdbEntities"].ConnectionString; // 		cnstr	"metadata=res://*/Models.DBmodel.csdl|res://*/Models.DBmodel.ssdl|res://*/Models.DBmodel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=.\\sqlexpress;initial catalog=mvcdb;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework\""	string
 
             mvcdbEntities testmodel = new mvcdbEntities();
-
+            var product = new TProduct(){
+                id = "E0001",
+                name = "test",
+                price = 1000,
+                cateid = 1
+            };
+            using (var context = new mvcdbEntities())
+            {
+                context.TProduct.Add(product);
+                context.SaveChanges(); //dbo.TProduct に追加する
+                
+            }
             var result = from p in testmodel.TProduct
                          where p.price > 1000
                          select p;

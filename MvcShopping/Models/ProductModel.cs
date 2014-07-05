@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace MvcShopping.Models
 {
@@ -16,4 +17,8 @@ namespace MvcShopping.Models
         //次ページがあるか
         public bool HasNextPage { get; set; }
     }
+    public class ShoppingContext : DbContext {
+        public DbSet<TProduct> Products { get; set; }
+    }
 }
+
