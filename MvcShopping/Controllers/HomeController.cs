@@ -21,7 +21,10 @@ namespace MvcShopping.Controllers
 
             mvcdbEntities testmodel = new mvcdbEntities();
 
-
+            var result = from p in testmodel.TProduct
+                         where p.id == "A0001"
+                         select p;
+//            testmodel.TProduct = (Models.TProduct)testmodel.TProduct.Where(c => c.id == "A0001");
             return View(testmodel);
         }
         public ActionResult Index(int? page)
