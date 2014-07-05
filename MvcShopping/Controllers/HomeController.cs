@@ -21,16 +21,22 @@ namespace MvcShopping.Controllers
 
             mvcdbEntities testmodel = new mvcdbEntities();
             var product = new TProduct(){
-                id = "E0001",
+                id = "E0003",
                 name = "test",
                 price = 1000,
                 cateid = 1
             };
+            IQueryable result1;
             using (var context = new mvcdbEntities())
             {
                 context.TProduct.Add(product);
-                context.SaveChanges(); //dbo.TProduct に追加する
-                
+                //context.SaveChanges(); //dbo.TProduct に追加する
+                result1 = context.TProduct.Where(c => c.price > 1000);
+                //
+                foreach (var p in context.TProduct) {
+                    Console.WriteLine(p.id + " " + p.name + " " + p.price);
+
+                }
             }
             var result = from p in testmodel.TProduct
                          where p.price > 1000
@@ -39,7 +45,7 @@ namespace MvcShopping.Controllers
 //            testmodel.TProduct = (Models.TProduct)testmodel.TProduct.Where(c => c.id == "A0001");
             //var id = "A0001";
             // = testmodel.TProduct.Find(id);
-            return View(result);
+            return View(result1);
         }
         public ActionResult Index(int? page)
         {
