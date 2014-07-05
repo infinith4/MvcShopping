@@ -5,8 +5,8 @@
 }
 
 <h2>Test</h2>
-
-@foreach (var item in Model.TProduct) { 
+@foreach(var item in Model.TProduct){
     @item.name<br>
-}
+    @Html.DisplayFor(c => item.price)<br>
 
+}

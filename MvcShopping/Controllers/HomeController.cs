@@ -22,10 +22,13 @@ namespace MvcShopping.Controllers
             mvcdbEntities testmodel = new mvcdbEntities();
 
             var result = from p in testmodel.TProduct
-                         where p.id == "A0001"
+                         where p.price > 1000
                          select p;
+            //result is IQueryable<TProduct> ??
 //            testmodel.TProduct = (Models.TProduct)testmodel.TProduct.Where(c => c.id == "A0001");
-            return View(testmodel);
+            //var id = "A0001";
+            // = testmodel.TProduct.Find(id);
+            return View(result);
         }
         public ActionResult Index(int? page)
         {

@@ -208,7 +208,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBmodel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\HomeClass.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\TCategory.cs">
       <DependentUpon>DBmodel.tt</DependentUpon>
     </Compile>
