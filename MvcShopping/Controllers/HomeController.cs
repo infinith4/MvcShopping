@@ -26,7 +26,7 @@ namespace MvcShopping.Controllers
                 price = 1000,
                 cateid = 1
             };
-            IQueryable result1;
+            IEnumerable<TProduct> result1;
             using (var context = new mvcdbEntities())
             {
                 context.TProduct.Add(product);
@@ -37,7 +37,9 @@ namespace MvcShopping.Controllers
                     Console.WriteLine(p.id + " " + p.name + " " + p.price);
 
                 }
+                
             }
+            //testmodel.TProduct = result1;
             var result = from p in testmodel.TProduct
                          where p.price > 1000
                          select p;
@@ -45,7 +47,7 @@ namespace MvcShopping.Controllers
 //            testmodel.TProduct = (Models.TProduct)testmodel.TProduct.Where(c => c.id == "A0001");
             //var id = "A0001";
             // = testmodel.TProduct.Find(id);
-            return View(result1);
+            return View(result);
         }
         public ActionResult Index(int? page)
         {
