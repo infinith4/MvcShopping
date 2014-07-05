@@ -1,0 +1,12 @@
+﻿@model MvcShopping.Models.mvcdbEntities
+
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+@foreach (var item in Model.TProduct) { 
+    @item.name<br>
+}
+

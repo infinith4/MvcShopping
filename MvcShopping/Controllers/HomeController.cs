@@ -6,11 +6,24 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Linq;
 using MvcShopping.Models;
+using System.Data.Entity;
 
 namespace MvcShopping.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: /Home/Test
+        public ActionResult Test()
+        {
+            //web.configから接続文字列を取得
+            string cnstr = ConfigurationManager.ConnectionStrings[
+               "mvcdbEntities"].ConnectionString; // 		cnstr	"metadata=res://*/Models.DBmodel.csdl|res://*/Models.DBmodel.ssdl|res://*/Models.DBmodel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=.\\sqlexpress;initial catalog=mvcdb;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework\""	string
+
+            mvcdbEntities testmodel = new mvcdbEntities();
+
+
+            return View(testmodel);
+        }
         public ActionResult Index(int? page)
         {
             //web.configから接続文字列を取得

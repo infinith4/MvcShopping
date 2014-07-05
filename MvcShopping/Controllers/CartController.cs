@@ -25,6 +25,7 @@ namespace MvcShopping.Controllers
             }
             return View(model);
         }
+
         // GET: /Cart/AddItem
         [Authorize]
         public ActionResult AddItem(string id, int? count)
