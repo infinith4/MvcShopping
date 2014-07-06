@@ -53,6 +53,35 @@ namespace MvcShopping.Controllers
             // = testmodel.TProduct.Find(id);
             return View(result1);
         }
+        public ActionResult Add(){
+        
+            TProduct model = new TProduct();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Add(FormCollection collection){
+            try
+            {
+                //web.configから接続文字列を取得
+                string cnstr = ConfigurationManager.ConnectionStrings[
+                   "mvcdbEntities"].ConnectionString;
+                mvcdbEntities model = new mvcdbEntities();
+                var product = new TProduct
+                {
+                    id = collection[0],
+                    name = collection[1],
+                    price = int.Parse(collection[2]),
+                    cateid = int.Parse(collection[3])
+                };
+                model.TProduct.Add(product);
+                model.SaveChanges();
+                return RedirectToAction("Test");
+            }
+            catch
+            {
+                return View();
+            }
+        }
         public ActionResult Index(int? page)
         {
             //web.configから接続文字列を取得

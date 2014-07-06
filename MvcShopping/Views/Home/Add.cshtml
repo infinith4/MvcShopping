@@ -1,0 +1,26 @@
+﻿@model MvcShopping.Models.TProduct
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.TextBoxFor(m => m.id)<br>
+    @Html.TextBoxFor(m => m.name)<br>
+    @Html.TextBoxFor(m => m.price)<br>
+    @Html.TextBoxFor(m => m.cateid)<br>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

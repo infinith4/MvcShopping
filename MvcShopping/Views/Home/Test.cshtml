@@ -8,5 +8,8 @@
 @foreach(var item in Model)
 {
     @item.id<br>
+    @item.name<br>
     @item.price<br>
+    @Html.ActionLink("編集","Edit/"+item.id,"Home")<br>
 }
+@Html.ActionLink("追加", "Add/", "Home")

@@ -357,6 +357,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Cart\Test.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
