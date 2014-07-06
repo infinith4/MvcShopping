@@ -40,6 +40,9 @@ namespace MvcShopping.Controllers
                 }
                 
             //}
+            
+            //test remove
+
             //testmodel.TProduct = result1;
             var result = from p in testmodel.TProduct
                          where p.price > 1000
