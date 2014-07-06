@@ -27,9 +27,10 @@ namespace MvcShopping.Controllers
                 cateid = 1
             };
             IEnumerable<TProduct> result1;
-            using (var context = new mvcdbEntities())
-            {
-                context.TProduct.Add(product);
+            //using ()
+            //{
+            var context = new mvcdbEntities();
+                //context.TProduct.Add(product);
                 //context.SaveChanges(); //dbo.TProduct に追加する
                 result1 = context.TProduct.Where(c => c.price > 1000);
                 //
@@ -38,7 +39,7 @@ namespace MvcShopping.Controllers
 
                 }
                 
-            }
+            //}
             //testmodel.TProduct = result1;
             var result = from p in testmodel.TProduct
                          where p.price > 1000
@@ -47,7 +48,7 @@ namespace MvcShopping.Controllers
 //            testmodel.TProduct = (Models.TProduct)testmodel.TProduct.Where(c => c.id == "A0001");
             //var id = "A0001";
             // = testmodel.TProduct.Find(id);
-            return View(result);
+            return View(result1);
         }
         public ActionResult Index(int? page)
         {
