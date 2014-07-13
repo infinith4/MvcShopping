@@ -121,16 +121,18 @@ namespace MvcShopping.Controllers
                "mvcdbConnectionString"].ConnectionString;
             DataContext dc = new DataContext(cnstr);
             //商品一覧を取得
-            ProductModel model = new ProductModel();
-            model.Products = dc.GetTable<TProduct>();
+            //ProductModel model = new ProductModel();
+            mvcdbEntities model = new mvcdbEntities();
+            //model.Products = dc.GetTable<TProduct>();
             
             //1ページに表示する
             int max_item = 5;
             //表示中のページ
             int cur_page = page ?? 0;
-            int max = dc.GetTable<TProduct>().Count();
+            int max = 10;
+            //int max = dc.GetTable<TProduct>().Count();
             //指定ページの商品数を取得する
-            model.Products = (from p in dc.GetTable<TProduct>()
+            model. = (from p in dc.GetTable<TProduct>()
                               select p).Skip(cur_page * max_item).Take(max_item);
             //カレントページの設定
             model.CurrentPage = cur_page;
